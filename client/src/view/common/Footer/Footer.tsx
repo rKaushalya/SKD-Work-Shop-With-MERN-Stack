@@ -35,7 +35,7 @@ export class Footer extends Component {
 
                     <div>
                         <h2 className="text-[#e6f0e6] font-bold text-1xl">Address</h2>
-                        <p className="text-[#e6f0e6] text-[14px]">No 24/A Galle Road baddegama</p>
+                        <p className="text-[#e6f0e6] text-[14px]">No 24/A Galle Road, baddegama</p>
                         <h2 className="text-[#e6f0e6] font-bold text-1xl">Telephone</h2>
                         <p className="text-[#e6f0e6] text-[14px]">+94 765320187 / +94 788730420</p>
                         <h2 className="text-[#e6f0e6] font-bold text-1xl">Email</h2>
