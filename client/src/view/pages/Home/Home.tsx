@@ -10,7 +10,7 @@ export class Home extends Component {
                 <div className="flex justify-evenly">
                     <div>
                         <h1 className="text-4xl font-bold text-red-600 mt-5 border-b-2 pb-2 mb-2">Book Car Repairs</h1>
-                        <p className="font-bold mb-3">Discover the ideal haven for your creative pursuits at our
+                        <p className=" mb-3">Discover the ideal haven for your creative pursuits at our
                             workshop-centric garage
                             space.<br/>
                             Our meticulously organized garage provides the perfect setting for hands-on projects,<br/>
@@ -31,11 +31,14 @@ export class Home extends Component {
                     </div>
 
                     <div>
-                        <img className="h-72" src={image1} alt="This is an image"/>
+                        <img className="h-72 mt-5 rounded-2xl" src={image1} alt="This is an image"/>
                     </div>
                 </div>
 
-                <img className="" src={image2} alt="This is an image"/>
+                <div className="max-w-full flex justify-center">
+                    <img className="w-10/12 rounded-2xl mb-3" src={image2} alt="This is an image"/>
+                </div>
+
             </div>
         );
     }
