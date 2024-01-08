@@ -8,8 +8,8 @@ module.exports = {
                 serif: ['Jost', 'sans']
             },
             colors: {
-                primary: '#6d40e4',
-                secondary: '#47b725',
+                primary: '#0b4a9b',
+                secondary: '#689ae5',
                 tertiary: '#4c4d4b',
             }
         },
