@@ -27,7 +27,7 @@ export class Footer extends Component {
                         <h1 className="text-[#e6f0e6] font-bold text-1xl">Quick Link</h1>
                         <ul className="mt-2">
                             <li className="text-[#e6f0e6]"><Link to="/">Home</Link></li>
-                            <li className="text-[#e6f0e6]"><Link to="/myBooking">My Booking</Link></li>
+                            <li className="text-[#e6f0e6]"><Link to="/viewBooking">My Booking</Link></li>
                             <li className="text-[#e6f0e6]"><Link to="/contact">Contact</Link></li>
                             <li className="text-[#e6f0e6]"><Link to="/about">About Us</Link></li>
                         </ul>

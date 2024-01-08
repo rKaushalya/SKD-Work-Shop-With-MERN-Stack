@@ -16,7 +16,7 @@ export class NavBar extends Component {
 
                 <ul className="list-none flex mt-1">
                     <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/">Home</Link></li>
-                    <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/myBooking">My Booking</Link></li>
+                    <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/viewBooking">My Booking</Link></li>
                     <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/contact">Contact</Link></li>
                     <li className="mr-20 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/about">About</Link></li>
                 </ul>
