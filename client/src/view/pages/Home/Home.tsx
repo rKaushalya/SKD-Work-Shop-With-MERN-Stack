@@ -10,7 +10,7 @@ export class Home extends Component {
                 <div className="flex justify-evenly">
                     <div>
                         <h1 className="text-4xl font-bold text-red-600 mt-5 border-b-2 pb-2 mb-2">Book Car Repairs</h1>
-                        <p className=" mb-3">Discover the ideal haven for your creative pursuits at our
+                        <p className="font-serif mb-3">Discover the ideal haven for your creative pursuits at our
                             workshop-centric garage
                             space.<br/>
                             Our meticulously organized garage provides the perfect setting for hands-on projects,<br/>
