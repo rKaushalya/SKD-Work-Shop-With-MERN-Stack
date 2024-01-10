@@ -1,12 +1,12 @@
 import {Component} from "react";
-import image from "../../../image/repair.jpg";
+import image from "../../../image/repair2.png";
 
 export class ViewBooking extends Component {
     render() {
         return (
             <div className="h-auto pt-20">
 
-                <div className="relative overflow-x-auto mb-1">
+                <div className="relative overflow-x-auto mb-1 mt-1">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead
                             className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -113,12 +113,7 @@ export class ViewBooking extends Component {
                     </table>
                 </div>
 
-                <div className="flex justify-evenly">
-                    <div className="h-52 w-60 bg-secondary mt-32 text-center">
-                        hkhk
-                    </div>
-                    <img className="w-3/4 filter opacity-80 mb-1" src={image} alt="This is an image.!"/>
-                </div>
+                {/*<img className="w-96 filter opacity-80 mb-1" src={image} alt="This is an image.!"/>*/}
 
             </div>
         );
