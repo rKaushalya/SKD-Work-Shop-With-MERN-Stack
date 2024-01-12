@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 export class Home extends Component {
     render() {
         return (
-            <div className="pt-20 ">
+            <div className="pt-20 mb-52">
                 <div className="relative text-center">
                     <img className="blur-sm h-[40em] w-full" src={service} alt="Image"/>
                     <h1 className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2
@@ -29,6 +29,7 @@ export class Home extends Component {
                     <div className="h-64 w-72 bg-blue-800">
                         <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Contact Details</h1>
                     </div>
+
                     <div className="h-64 w-72 bg-red-800">
                         <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Make an appointment</h1>
 
@@ -93,8 +94,22 @@ export class Home extends Component {
                         </form>
 
                     </div>
+
                     <div className="h-64 w-72 bg-blue-800">
                         <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Maintenance Service</h1>
+                        <div className="text-start w-10/12 ml-6 mt-5">
+                            <p className="text-[12px] text-amber-50 mb-3">
+                                Regular car maintenance is crucial for ensuring the longevity and safety of your
+                                vehicle.
+                                Neglecting routine maintenance tasks such as oil changes, tire rotations, and brake
+                                inspections
+                            </p>
+                            <button
+                                className="shadow bg-white hover:bg-purple-400 font-bold py-2 px-4 rounded text-[12px]"
+                                type="button">
+                                More Service
+                            </button>
+                        </div>
                     </div>
                 </div>
 
