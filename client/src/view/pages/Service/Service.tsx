@@ -32,44 +32,42 @@ export class Service extends Component {
                     <div className="h-64 w-72 bg-red-800">
                         <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Make an appointment</h1>
 
-                        <form className="w-10/12">
-                            <div className="flex p-1">
+                        <form className="w-10/12 ml-3">
+                            <div className="flex p-1 mt-5">
 
-                                    <div className="">
-                                        <input
-                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
-                                            text-white focus:outline-blue-500 text-[12px]"
-                                            id="inline-full-name" type="text" placeholder="Your Full Name"/>
-                                    </div>
+                                <div className="">
+                                    <input
+                                        className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px] p-1 ml-2"
+                                        id="inline-full-name" type="text" placeholder="Your Full Name"/>
+                                </div>
 
 
-
-                                    <div className="">
-                                        <input
-                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
-                                            text-white focus:outline-blue-500 text-[12px]"
-                                            id="inline-password" type="text"/>
-                                    </div>
+                                <div className="">
+                                    <input
+                                        className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px] p-1 ml-3"
+                                        id="inline-password" type="text" placeholder="Email"/>
+                                </div>
 
                             </div>
 
-                            <div className="flex">
+                            <div className="flex p-1">
 
-                                    <div className="">
-                                        <input
-                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
-                                            text-white focus:outline-blue-500 text-[12px]"
-                                            id="inline-full-name" type="text" placeholder="Your Full Name"/>
-                                    </div>
+                                <div className="">
+                                    <input
+                                        className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px] p-1 ml-2"
+                                        id="inline-full-name" type="text" placeholder="Your Phone Number"/>
+                                </div>
 
 
-
-                                    <div className="">
-                                        <input
-                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
-                                            text-white focus:outline-blue-500 text-[12px]"
-                                            id="inline-password" type="text"/>
-                                    </div>
+                                <div className="">
+                                    <input
+                                        className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px] p-1 ml-3"
+                                        id="inline-password" type="text" placeholder="City"/>
+                                </div>
 
                             </div>
 
@@ -77,20 +75,20 @@ export class Service extends Component {
                             <div className="mb-2">
                                 <input
                                     className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
-                                            text-white focus:outline-blue-500 text-[12px]"
-                                    id="inline-full-name" type="text" placeholder="Your Full Name"/>
+                                            text-white focus:outline-blue-500 text-[12px] ml-3 pb-6"
+                                    id="inline-full-name" type="text" placeholder="Message"/>
                             </div>
 
 
                             <div className="md:flex md:items-center">
-                                <div className="md:w-1/3"></div>
-                                <div className="md:w-2/3">
-                                    <button
-                                        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                                        type="button">
-                                        Sign Up
-                                    </button>
-                                </div>
+
+                                <button
+                                    className="shadow bg-white hover:bg-purple-400 font-bold py-2 px-4 rounded text-[14px]
+                                               w-full ml-3"
+                                    type="button">
+                                    Send Message
+                                </button>
+
                             </div>
                         </form>
 
