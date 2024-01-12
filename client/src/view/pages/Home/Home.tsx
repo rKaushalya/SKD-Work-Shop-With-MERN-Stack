@@ -28,6 +28,32 @@ export class Home extends Component {
                 <div className="text-center absolute flex justify-center w-full mt-[-60px]">
                     <div className="h-64 w-72 bg-blue-800">
                         <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Contact Details</h1>
+                        <div className="flex">
+                            <div className="text-start w-24 ml-6 mt-5">
+                                <p className="text-[12px] text-amber-50 mb-3 font-bold">
+                                    Contact Us :
+                                </p>
+                                <p className="text-[12px] text-amber-50 mb-3 font-bold">
+                                    Location :
+                                </p>
+                                <p className="text-[12px] text-amber-50 mb-3 mt-8 font-bold">
+                                    Work Hours :
+                                </p>
+                            </div>
+
+                            <div className="text-start w-auto ml-6 mt-5">
+                                <p className="text-[12px] text-amber-50 mb-3">
+                                    +94 765320187
+                                </p>
+                                <p className="text-[12px] text-amber-50 mb-3">
+                                    No 24/A Galle Road, baddegama
+                                </p>
+                                <p className="text-[12px] text-amber-50 mb-3">
+                                    Monday - Friday 8.00AM-8.00PM
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div className="h-64 w-72 bg-red-800">
