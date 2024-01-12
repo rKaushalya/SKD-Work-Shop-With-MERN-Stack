@@ -12,12 +12,12 @@ export class MainContent extends Component {
         return (
             <div className="h-auto">
                 <Routes>
-                    <Route path="/" Component={Home}></Route>
+                    <Route path="/service" Component={Home}></Route>
                     <Route path="/about" Component={Aboutus}></Route>
                     <Route path="/contact" Component={Contact}></Route>
                     <Route path="/viewBooking" Component={ViewBooking}></Route>
                     <Route path="/addBooking" Component={AddBooking}></Route>
-                    <Route path="/service" Component={Service}></Route>
+                    <Route path="/" Component={Service}></Route>
                 </Routes>
             </div>
         );

@@ -15,8 +15,8 @@ export class Service extends Component {
                         We are here to help you for any kind of error in your vehicle.<br/>
                         we are providing valuable service for you.!</p>
                     <div className="flex absolute top-2/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <button className="bg-red-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg">Click for more</button>
-                        <button className="bg-blue-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg">About Us</button>
+                        <button className="bg-red-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">Add Booking</button>
+                        <button className="bg-blue-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">Our Services</button>
                     </div>
                 </div>
 
