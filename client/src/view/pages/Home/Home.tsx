@@ -24,10 +24,10 @@ export class Home extends Component {
 
                         <button className="bg-gradient-to-l from-red-400 to-blue-200 p-2 rounded-2xl m-5 font-serif
                                            hover:scale-110 hover:shadow-lg">
-                            <Link to="/addbooking">Add Booking</Link></button>
+                            Click for more</button>
                         <button className="bg-gradient-to-l from-red-400 to-blue-200 p-2 rounded-2xl m-5 font-serif
                                            hover:scale-110 hover:shadow-lg">
-                            <Link to="/service">Our Services</Link></button>
+                            <Link to="/about">About Us</Link></button>
                     </div>
 
                     <div>

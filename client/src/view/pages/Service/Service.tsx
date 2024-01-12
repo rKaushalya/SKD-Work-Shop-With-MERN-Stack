@@ -1,5 +1,6 @@
 import {Component} from "react";
 import service from "../../../image/service2.jpg";
+import {Link} from "react-router-dom";
 
 export class Service extends Component {
     render() {
@@ -15,8 +16,87 @@ export class Service extends Component {
                         We are here to help you for any kind of error in your vehicle.<br/>
                         we are providing valuable service for you.!</p>
                     <div className="flex absolute top-2/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <button className="bg-red-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">Add Booking</button>
-                        <button className="bg-blue-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">Our Services</button>
+                        <button
+                            className="bg-red-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">
+                            <Link to="/addbooking">Add Booking</Link></button>
+                        <button
+                            className="bg-blue-800 p-3 m-1 font-bold text-white font-serif text-[14px] rounded-lg hover:scale-110 hover:shadow-lg">
+                            <Link to="/service">Our Services</Link></button>
+                    </div>
+                </div>
+
+                <div className="text-center absolute flex justify-center w-full mt-[-60px]">
+                    <div className="h-64 w-72 bg-blue-800">
+                        <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Contact Details</h1>
+                    </div>
+                    <div className="h-64 w-72 bg-red-800">
+                        <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Make an appointment</h1>
+
+                        <form className="w-10/12">
+                            <div className="flex p-1">
+
+                                    <div className="">
+                                        <input
+                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px]"
+                                            id="inline-full-name" type="text" placeholder="Your Full Name"/>
+                                    </div>
+
+
+
+                                    <div className="">
+                                        <input
+                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px]"
+                                            id="inline-password" type="text"/>
+                                    </div>
+
+                            </div>
+
+                            <div className="flex">
+
+                                    <div className="">
+                                        <input
+                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px]"
+                                            id="inline-full-name" type="text" placeholder="Your Full Name"/>
+                                    </div>
+
+
+
+                                    <div className="">
+                                        <input
+                                            className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px]"
+                                            id="inline-password" type="text"/>
+                                    </div>
+
+                            </div>
+
+
+                            <div className="mb-2">
+                                <input
+                                    className="bg-red-900 appearance-none border-2 border-gray-700 rounded w-full
+                                            text-white focus:outline-blue-500 text-[12px]"
+                                    id="inline-full-name" type="text" placeholder="Your Full Name"/>
+                            </div>
+
+
+                            <div className="md:flex md:items-center">
+                                <div className="md:w-1/3"></div>
+                                <div className="md:w-2/3">
+                                    <button
+                                        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                                        type="button">
+                                        Sign Up
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div className="h-64 w-72 bg-blue-800">
+                        <h1 className="font-bold text-amber-50 mt-5 text-[18px]">Maintenance Service</h1>
                     </div>
                 </div>
 
