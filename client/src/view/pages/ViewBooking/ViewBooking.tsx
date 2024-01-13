@@ -1,12 +1,12 @@
 import {Component} from "react";
-import image from "../../../image/repair2.png";
+import image from "../../../image/car.jpg";
 
 export class ViewBooking extends Component {
     render() {
         return (
             <div className="h-auto pt-20">
 
-                <div className="relative overflow-x-auto mb-1 mt-1">
+                <div className="relative overflow-x-auto">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead
                             className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -113,7 +113,7 @@ export class ViewBooking extends Component {
                     </table>
                 </div>
 
-                {/*<img className="w-96 filter opacity-80 mb-1" src={image} alt="This is an image.!"/>*/}
+                {/*<img className="w-full  filter opacity-80" src={image} alt="This is an image.!"/>*/}
 
             </div>
         );
