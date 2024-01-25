@@ -23,6 +23,18 @@ const BookingModel = mongoose.Schema(
         "message": {
             require: true,
             type: String
+        },
+        "date": {
+            require: true,
+            type: Date
+        },
+        "status": {
+            require: true,
+            type: String
+        },
+        "vehicleName": {
+            require: true,
+            type: String
         }
     },
     {versionKey: false}
