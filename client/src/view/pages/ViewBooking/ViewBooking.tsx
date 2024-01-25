@@ -89,7 +89,7 @@ export class ViewBooking extends Component {
                                         {booking.message}
                                     </td>
                                     <td className="px-6 py-4">
-                                        {booking.date}
+                                        {this.formatTimestamp(booking.date)}
                                     </td>
                                     <td className="px-6 py-4">
                                         {booking.status}
@@ -104,5 +104,20 @@ export class ViewBooking extends Component {
 
             </div>
         );
+    }
+
+     formatTimestamp(inputTimestamp: string): string {
+        // Create a Date object from the input timestamp
+        const date = new Date(inputTimestamp);
+
+        // Extract the date components
+        const year = date.getUTCFullYear();
+        const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
+        const day = date.getUTCDate().toString().padStart(2, '0');
+
+        // Create the formatted date string
+        const formattedDate = `${year}-${month}-${day}`;
+
+        return formattedDate;
     }
 }
