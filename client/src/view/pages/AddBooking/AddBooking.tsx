@@ -1,7 +1,36 @@
 import {Component} from "react";
 import book from '../../../image/book2.jpg'
+import axios from "axios";
 
-export class AddBooking extends Component {
+interface BookingProps {
+    data : any;
+}
+
+interface BookingState {
+    name: string;
+    email: string;
+    number: string;
+    city: string;
+    message: string;
+}
+
+export class AddBooking extends Component<BookingProps, BookingState> {
+
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            name: '',
+            email: '',
+            number: '',
+            city: '',
+            message: ''
+        }
+        this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
+    }
+
     render() {
         return (
             <div className="h-lvh pt-20 text-center">
@@ -12,42 +41,63 @@ export class AddBooking extends Component {
                             <div className="flex items-center border-b border-blue-500 py-2 mb-3">
                                 <input
                                     className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none"
-                                    type="text" placeholder="Your Full Name" aria-label="Full name"/>
+                                    leading-tight focus:outline-none"
+                                    type="text" placeholder="Your Full Name" aria-label="Full name"
+                                    name={"name"}
+                                    value={this.state.name}
+                                    onChange={this.handleMessageInputOnChange}
+                                />
                             </div>
 
                             <div className="flex items-center border-b border-blue-500 py-2 mb-3">
                                 <input
                                     className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none"
-                                    type="text" placeholder="Email Address" aria-label="Full name"/>
+                                    leading-tight focus:outline-none"
+                                    type="text" placeholder="Email Address" aria-label="Full name"
+                                    name={"email"}
+                                    value={this.state.email}
+                                    onChange={this.handleMessageInputOnChange}
+                                />
                             </div>
 
                             <div className="flex items-center border-b border-blue-500 py-2 mb-3">
                                 <input
                                     className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none"
-                                    type="text" placeholder="Phone Number" aria-label="Full name"/>
+                                    leading-tight focus:outline-none"
+                                    type="text" placeholder="Phone Number" aria-label="Full name"
+                                    name={"number"}
+                                    value={this.state.number}
+                                    onChange={this.handleMessageInputOnChange}
+                                />
                             </div>
 
                             <div className="flex items-center border-b border-blue-500 py-2 mb-3">
                                 <input
                                     className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none"
-                                    type="text" placeholder="City" aria-label="Full name"/>
+                                    leading-tight focus:outline-none"
+                                    type="text" placeholder="City" aria-label="Full name"
+                                    name={"city"}
+                                    value={this.state.city}
+                                    onChange={this.handleMessageInputOnChange}
+                                />
                             </div>
 
                             <div className="flex items-center border-b border-blue-500 py-2 mb-6">
                                 <input
                                     className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none"
-                                    type="text" placeholder="Message" aria-label="Full name"/>
+                                    leading-tight focus:outline-none"
+                                    type="text" placeholder="Message" aria-label="Full name"
+                                    name={"message"}
+                                    value={this.state.message}
+                                    onChange={this.handleMessageInputOnChange}
+                                />
                             </div>
 
                             <button
                                 className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700
-                        text-sm border-4 text-white py-1 px-2 rounded"
-                                type="button">
+                                text-sm border-4 text-white py-1 px-2 rounded"
+                                type="button"
+                                onClick={this.onSendBtnClick}>
                                 Confirm Booking
                             </button>
                         </div>
@@ -59,5 +109,35 @@ export class AddBooking extends Component {
                 </div>
             </div>
         );
+    }
+
+    handleMessageInputOnChange(event: { target: {value: any; name: any;} }) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        // @ts-ignore
+        this.setState( {
+            [name]: value
+        });
+    }
+
+    private onSendBtnClick = () => {
+        try {
+            this.api.post('/addBooking/add', {
+                name: this.state.name,
+                email: this.state.email,
+                number: this.state.number,
+                city: this.state.city,
+                message: this.state.message
+            }).then((res: { data: any}) => {
+                const jsonData = res.data;
+                console.log(jsonData);
+                alert("Booking Added.!");
+            }).catch((error: any)=> {
+                console.error('Axios Error', error);
+            });
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        }
     }
 }
