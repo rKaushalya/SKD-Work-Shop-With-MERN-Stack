@@ -10,6 +10,14 @@ const BookingController = {
             console.error(e);
             res.status(500).json({error : 'Something went wrong.!'});
         }
+    },
+    getBooking : async function (req,res,next) {
+        try {
+            const booking = await Booking.find();
+            res.status(200).json(booking);
+        }catch (e) {
+            console.error('Something Went Wrong.!');
+        }
     }
 }
 

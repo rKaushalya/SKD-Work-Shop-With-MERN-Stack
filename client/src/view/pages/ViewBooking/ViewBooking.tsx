@@ -1,5 +1,4 @@
 import {Component} from "react";
-import image from "../../../image/car.jpg";
 
 export class ViewBooking extends Component {
     render() {
@@ -15,19 +14,19 @@ export class ViewBooking extends Component {
                                 Vehicle Name
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Booking Id
+                                Customer Name
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Name
+                                Email
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Fuel Type
+                                City
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Message
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Date
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Time
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Booking Status

@@ -151,7 +151,7 @@ export class AddBooking extends Component<BookingProps, BookingState> {
 
     private onSendBtnClick = () => {
         try {
-            this.api.post('/addBooking/add', {
+            this.api.post('/booking/add', {
                 name: this.state.name,
                 email: this.state.email,
                 number: this.state.number,
