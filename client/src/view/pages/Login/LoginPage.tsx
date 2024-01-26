@@ -2,8 +2,28 @@ import {Component} from "react";
 import * as $ from 'jquery';
 import logo from "../../../image/logo.png";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export class LoginPage extends Component {
+interface LoginProps {
+    data: any;
+}
+interface LoginState {
+    username: string;
+}
+
+export class LoginPage extends Component<LoginProps,LoginState> {
+
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            username: ''
+        }
+        this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
+    }
+
     render() {
         return (
             <div>
@@ -51,7 +71,11 @@ export class LoginPage extends Component {
                                         <input
                                             className="appearance-none rounded w-11/12 outline-gray-800
                                             focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
-                                            id="inline-full-name" type="text"/>
+                                            id="inline-full-name" type="text"
+                                            name={"username"}
+                                            value={this.state.username}
+                                            onChange={this.handleMessageInputOnChange}
+                                        />
                                     </div>
 
 
@@ -67,7 +91,7 @@ export class LoginPage extends Component {
                                 <button
                                     className="shadow bg-blue-400 w-11/12 text-white hover:bg-blue-900 font-bold py-2 px-4 rounded
                                 text-[16px] mt-5"
-                                    type="button">
+                                    type="button" onClick={this.checkUser}>
                                     Login
                                 </button>
                             </div>
@@ -79,5 +103,33 @@ export class LoginPage extends Component {
                 </div>
             </div>
         );
+    }
+
+    handleMessageInputOnChange(event: { target: { value: any; name: any; } }) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        // @ts-ignore
+        this.setState({
+            [name]: value
+        });
+    }
+
+    private checkUser = () => {
+        try {
+            this.api.get('/register/check/'+this.state.username)
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    if (jsonData[0].username === this.state.username){
+                        alert("good");
+                    }else {
+                        console.error('Wrong Username or password.!');
+                    }
+                }).catch((error: any) => {
+                console.error('Axios Error:', error);
+            });
+        }catch (e) {
+            console.log("Error fetching Data.!",e);
+        }
     }
 }

@@ -15,12 +15,7 @@ const RegisterController = {
         try {
             const username = req.params.username;
             const user = await Register.find({username: username});
-
-            if (user.length > 0) {
-                res.status(200).json({check: true});
-            } else {
-                res.status(200).json({check: false});
-            }
+            res.status(200).json(user);
         } catch (e) {
             console.error('Something Went Wrong.!');
         }
