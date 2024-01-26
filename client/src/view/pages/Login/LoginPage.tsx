@@ -37,7 +37,7 @@ export class LoginPage extends Component {
 
                 <div className="flex justify-center">
                     <div
-                        className="bg-gray-100 w-[25em] h-[30em] mt-14 rounded-lg text-center shadow-lg shadow-gray-500">
+                        className="bg-gray-100 w-[25em] h-[35em] mt-14 rounded-lg text-center shadow-lg shadow-gray-500">
                         <h1 className="text-4xl font-bold text-gray-200 bg-blue-400 pt-4 pb-4 rounded-t-lg">Login</h1>
 
                         <img className="h-36 ml-[8em]" src={logo} alt="this is an logo.!"/>
@@ -50,7 +50,7 @@ export class LoginPage extends Component {
                                         <label className="text-xs font-bold">Username</label>
                                         <input
                                             className="appearance-none rounded w-11/12 outline-gray-800
-                                            focus:outline-blue-400 text-[16px] p-2"
+                                            focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
                                             id="inline-full-name" type="text"/>
                                     </div>
 
@@ -59,7 +59,7 @@ export class LoginPage extends Component {
                                         <label className="text-xs font-bold">Password</label>
                                         <input
                                             className="appearance-none rounded w-11/12
-                                            focus:outline-blue-400 text-[16px] p-2 outline-gray-500"
+                                            focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
                                             id="inline-password" type="password"/>
                                     </div>
                                 </div>
@@ -70,10 +70,11 @@ export class LoginPage extends Component {
                                     type="button">
                                     Login
                                 </button>
-
-
                             </div>
                         </form>
+
+                        <p className="font-serif mt-2">or</p>
+                        <button className="mt-2 underline">Sign up</button>
                     </div>
                 </div>
             </div>
