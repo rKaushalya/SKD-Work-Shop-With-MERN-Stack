@@ -10,6 +10,7 @@ DBConnection.then(r => console.log(r));
 
 var indexRouter = require('./routes/index');
 var bookingRouter = require('./routes/booking');
+var registerRouter = require('./routes/register');
 const {Db} = require("mongodb");
 
 var app = express();
@@ -28,6 +29,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/booking', bookingRouter);
+app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

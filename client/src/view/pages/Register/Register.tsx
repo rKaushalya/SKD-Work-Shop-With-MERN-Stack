@@ -1,8 +1,32 @@
 import {Component} from "react";
 import logo from "../../../image/logo.png";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export class Register extends Component {
+interface RegisterProps {
+    data: any;
+}
+
+interface RegisterState {
+    email: string;
+    username: string;
+    password: string;
+}
+
+export class Register extends Component<RegisterProps, RegisterState> {
+
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            email: '',
+            username: '',
+            password: ''
+        }
+        this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
+    }
     render() {
         return (
             <div>
@@ -50,7 +74,11 @@ export class Register extends Component {
                                         <input
                                             className="appearance-none rounded w-11/12 outline-gray-800
                                             focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
-                                            id="inline-full-name" type="email"/>
+                                            id="email" type="email"
+                                            name={"email"}
+                                            value={this.state.email}
+                                            onChange={this.handleMessageInputOnChange}
+                                        />
                                     </div>
 
                                     <div className="mt-5">
@@ -58,7 +86,11 @@ export class Register extends Component {
                                         <input
                                             className="appearance-none rounded w-11/12 outline-gray-800
                                             focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
-                                            id="inline-full-name" type="text"/>
+                                            id="username" type="text"
+                                            name={"username"}
+                                            value={this.state.username}
+                                            onChange={this.handleMessageInputOnChange}
+                                        />
                                     </div>
 
 
@@ -67,14 +99,18 @@ export class Register extends Component {
                                         <input
                                             className="appearance-none rounded w-11/12
                                             focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
-                                            id="inline-password" type="password"/>
+                                            id="password" type="password"
+                                            name={"password"}
+                                            value={this.state.password}
+                                            onChange={this.handleMessageInputOnChange}
+                                        />
                                     </div>
                                 </div>
 
                                 <button
                                     className="shadow bg-blue-400 w-11/12 text-white hover:bg-blue-900 font-bold py-2 px-4 rounded
                                 text-[16px] mt-5"
-                                    type="button">
+                                    type="button" onClick={this.onRegisterBtnClick}>
                                     Register
                                 </button>
                             </div>
@@ -83,5 +119,33 @@ export class Register extends Component {
                 </div>
             </div>
         );
+    }
+
+    handleMessageInputOnChange(event: { target: { value: any; name: any; } }) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        // @ts-ignore
+        this.setState({
+            [name]: value
+        });
+    }
+
+    private onRegisterBtnClick = () => {
+        try {
+            this.api.post('/register/add', {
+                email: this.state.email,
+                username: this.state.username,
+                password: this.state.password
+            }).then((res: { data: any}) => {
+                const jsonData = res.data;
+                console.log(jsonData);
+                alert("Register Success.!");
+            }).catch((error: any)=> {
+                console.error('Axios Error', error);
+            });
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        }
     }
 }
