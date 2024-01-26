@@ -134,8 +134,8 @@ export class Register extends Component<RegisterProps, RegisterState> {
     private onRegisterBtnClick = () => {
         try {
             this.api.post('/register/add', {
-                email: this.state.email,
                 username: this.state.username,
+                email: this.state.email,
                 password: this.state.password
             }).then((res: { data: any}) => {
                 const jsonData = res.data;

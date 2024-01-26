@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 const RegisterModel = mongoose.Schema(
     {
-        "email": {
+        "username": {
             require: true,
             type: String,
             unique: true,
             index: true
         },
-        "username": {
+        "email": {
             require: true,
             type: String
         },
