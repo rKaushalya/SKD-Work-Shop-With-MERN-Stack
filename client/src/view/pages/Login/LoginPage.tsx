@@ -74,7 +74,7 @@ export class LoginPage extends Component {
                         </form>
 
                         <p className="font-serif mt-2">or</p>
-                        <button className="mt-2 underline">Sign up</button>
+                        <button className="mt-2 underline"><Link to="/register">Sign up</Link></button>
                     </div>
                 </div>
             </div>
