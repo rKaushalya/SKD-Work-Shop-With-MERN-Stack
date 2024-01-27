@@ -13,8 +13,8 @@ const RegisterController = {
     },
     checkUser: async function (req, res, next) {
         try {
-            const username = req.params.username;
-            const user = await Register.find({username: username});
+            const email = req.params.email;
+            const user = await Register.find({email: email});
             res.status(200).json(user);
         } catch (e) {
             console.error('Something Went Wrong.!');

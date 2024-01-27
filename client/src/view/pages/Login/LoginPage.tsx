@@ -1,14 +1,15 @@
 import {Component} from "react";
-import * as $ from 'jquery';
 import logo from "../../../image/logo.png";
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface LoginProps {
     data: any;
 }
 interface LoginState {
-    username: string;
+    email: string;
 }
 
 export class LoginPage extends Component<LoginProps,LoginState> {
@@ -19,7 +20,7 @@ export class LoginPage extends Component<LoginProps,LoginState> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            username: ''
+            email: ''
         }
         this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
     }
@@ -27,35 +28,8 @@ export class LoginPage extends Component<LoginProps,LoginState> {
     render() {
         return (
             <div>
-                <div className="w-full p-5 bg-[#444544] flex justify-evenly h-20 z-10">
 
-                    <div className="flex">
-                        <h1 className="text-2xl text-secondary">
-                            SKD Work Shop</h1>
-                        <img className="h-12 ml-1" src={logo}
-                             alt=""/>
-                    </div>
-
-                    <ul className="list-none flex mt-1">
-                        <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/">Home</Link>
-                        </li>
-                        <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link to="/viewBooking">My
-                            Booking</Link></li>
-                        <li className="mr-5 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link
-                            to="/contact">Contact</Link></li>
-                        <li className="mr-20 text-[18px] text-[#e6f0e6] hover:text-secondary"><Link
-                            to="/about">About</Link>
-                        </li>
-                    </ul>
-
-                    <button className="text-[14px] text-[#e6f0e6]
-                                   bg-blue-500 pl-3 pr-3 rounded-2xl
-                                   hover:bg-amber-50 hover:text-tertiary">
-                        <Link to="/login">Sign In</Link>
-                    </button>
-                </div>
-
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-20 pb-20">
                     <div
                         className="bg-gray-100 w-[25em] h-[35em] mt-14 rounded-lg text-center shadow-lg shadow-gray-500">
                         <h1 className="text-4xl font-bold text-gray-200 bg-blue-400 pt-4 pb-4 rounded-t-lg">Login</h1>
@@ -67,13 +41,13 @@ export class LoginPage extends Component<LoginProps,LoginState> {
 
                                 <div className="text-start ml-5">
                                     <div className="mt-5">
-                                        <label className="text-xs font-bold">Username</label>
+                                        <label className="text-xs font-bold">Email</label>
                                         <input
                                             className="appearance-none rounded w-11/12 outline-gray-800
                                             focus:outline-blue-400 text-[16px] p-2 border-2 border-gray-300"
-                                            id="inline-full-name" type="text"
-                                            name={"username"}
-                                            value={this.state.username}
+                                            id="inline-full-name" type="email"
+                                            name={"email"}
+                                            value={this.state.email}
                                             onChange={this.handleMessageInputOnChange}
                                         />
                                     </div>
@@ -101,6 +75,7 @@ export class LoginPage extends Component<LoginProps,LoginState> {
                         <button className="mt-2 underline"><Link to="/register">Sign up</Link></button>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         );
     }
@@ -116,17 +91,21 @@ export class LoginPage extends Component<LoginProps,LoginState> {
     }
 
     private checkUser = () => {
+        const notify = () => toast.info("Login Success.!", {
+            position: "bottom-right"
+        });
+
         try {
-            this.api.get('/register/check/'+this.state.username)
+            this.api.get('/register/check/'+this.state.email)
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
-                    if (jsonData[0].username === this.state.username){
-                        alert("good");
+                    if (jsonData[0].email === this.state.email){
+                        notify();
                     }else {
-                        console.error('Wrong Username or password.!');
+                        alert('Wrong Email or password.!');
                     }
                 }).catch((error: any) => {
-                console.error('Axios Error:', error);
+                alert('Wrong Email or password.!');
             });
         }catch (e) {
             console.log("Error fetching Data.!",e);
