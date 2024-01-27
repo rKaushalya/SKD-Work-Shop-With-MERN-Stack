@@ -65,6 +65,9 @@ export class ViewBooking extends Component {
                             <th scope="col" className="px-6 py-3">
                                 Booking Status
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                Cancel Booking
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -93,6 +96,9 @@ export class ViewBooking extends Component {
                                     </td>
                                     <td className="px-6 py-4">
                                         {booking.status}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <button className="border-2 p-2 bg-red-900 rounded-lg">Cancel</button>
                                     </td>
                                 </tr>
                             ))
