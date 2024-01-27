@@ -96,8 +96,10 @@ export class MainContent extends Component {
                                         {booking.status}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <button className="mr-3 border-2 p-2 bg-green-900 rounded-lg">Accept</button>
-                                        <button className="border-2 p-2 bg-red-900 rounded-lg">Decline</button>
+                                        <button className="mr-3 border-2 p-2 bg-green-900 rounded-lg"
+                                                onClick={() => this.handleButtonClick('Accept', booking.email)}>Accept</button>
+                                        <button className="border-2 p-2 bg-red-900 rounded-lg"
+                                                onClick={() => this.handleButtonClick('Decline', booking.email)}>Decline</button>
                                     </td>
                                 </tr>
                             ))
@@ -109,6 +111,46 @@ export class MainContent extends Component {
             </div>
         );
     }
+
+    handleButtonClick = async (action: string, email: string) => {
+        try {
+            this.api.get('/booking/find/'+email)
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+
+                    const clickedAction = action; // 'Accept' or 'Decline'
+                    console.log(`${clickedAction} button clicked for email:`, email);
+
+                    if (clickedAction === "Accept"){
+                        jsonData[0].status = "Accept";
+                    }else {
+                        jsonData[0].status = "Decline";
+                    }
+
+                    console.log(jsonData[0].status);
+
+                    this.api.put('booking/put/'+email,{
+                        name: jsonData[0].name,
+                        email: email,
+                        number: jsonData[0].number,
+                        city: jsonData[0].city,
+                        message: jsonData[0].message,
+                        date: jsonData[0].date,
+                        status: jsonData[0].status,
+                        vehicleName: jsonData[0].vehicleName
+                    }).then((res: { data: any }) => {
+                        const update = res.data;
+                        console.log(update);
+                        this.fetchData();
+                    });
+
+                }).catch((error: any) => {
+                console.error('Axios Error:', error)
+            });
+        } catch (e) {
+            console.log("Error fetching Data.!");
+        }
+    };
 
     formatTimestamp(inputTimestamp: string): string {
         // Create a Date object from the input timestamp
