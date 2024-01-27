@@ -1,5 +1,7 @@
 import {Component} from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class ViewBooking extends Component {
 
@@ -98,7 +100,8 @@ export class ViewBooking extends Component {
                                         {booking.status}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <button className="border-2 p-2 bg-red-900 rounded-lg">Cancel</button>
+                                        <button className="border-2 p-2 bg-red-900 rounded-lg"
+                                                onClick={() => this.handleButtonClick(booking.email)}>Cancel</button>
                                     </td>
                                 </tr>
                             ))
@@ -107,9 +110,26 @@ export class ViewBooking extends Component {
                         </tbody>
                     </table>
                 </div>
-
+                <ToastContainer />
             </div>
         );
+    }
+
+    handleButtonClick = async (email: string) => {
+        const notify = () => toast.info("Booking Delete Success.!", {
+            position: "top-right"
+        });
+        try {
+            this.api.delete('/booking/delete/'+email)
+                .then((res: { data: any }) => {
+                    notify();
+                    this.fetchData();
+                }).catch((error: any) => {
+                console.error('Axios Error:', error)
+            });
+        } catch (e) {
+            console.log("Error fetching Data.!");
+        }
     }
 
      formatTimestamp(inputTimestamp: string): string {

@@ -7,5 +7,6 @@ router.post("/add",BookingController.addBooking);
 router.get("/all",BookingController.getBooking);
 router.get("/find/:email",BookingController.findBooking);
 router.put("/put/:email",BookingController.updateBooking);
+router.delete("/delete/:email",BookingController.deleteBooking);
 
 module.exports = router;
