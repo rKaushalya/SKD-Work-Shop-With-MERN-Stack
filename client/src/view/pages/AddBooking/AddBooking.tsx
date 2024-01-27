@@ -42,7 +42,7 @@ export class AddBooking extends Component<BookingProps, BookingState> {
             <div className="h-lvh pt-20 text-center">
                 <h1 className="text-3xl mt-10">Add Booking</h1>
                 <div className="flex justify-evenly text-start">
-                    <form className="w-4/12 border-2 h-[32em] mt-10 rounded shadow-lg shadow-gray-500">
+                    <form className="w-4/12 h-[32em] mt-8 rounded border-2">
                         <div className="w-10/12 mt-7 ml-10">
                             <div className="flex items-center border-b border-blue-500 py-2 mb-3">
                                 <input
