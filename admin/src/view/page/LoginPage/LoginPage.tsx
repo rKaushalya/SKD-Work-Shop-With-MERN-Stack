@@ -1,5 +1,6 @@
 import {Component} from "react";
 import logo from "../../../image/logo.png";
+import {Link} from "react-router-dom";
 
 export class LoginPage extends Component {
     render() {
@@ -42,7 +43,7 @@ export class LoginPage extends Component {
                                     className="shadow bg-blue-400 w-11/12 text-white hover:bg-blue-900 font-bold py-2 px-4 rounded
                                 text-[16px] mt-5"
                                     type="button">
-                                    Login
+                                    <Link to="/allbooking">Login</Link>
                                 </button>
                             </div>
                         </form>
