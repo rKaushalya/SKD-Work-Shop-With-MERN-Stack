@@ -50,7 +50,7 @@ const BookingController = {
         try {
             const email = req.params.email;
             const result = await Booking.deleteOne({email : email});
-            if (result.deletedCount == 0){
+            if (result.deletedCount === 0){
                 res.status(404).json({error : 'Booking Not Found.!'});
             }
             res.status(200).json({message : 'Booking Cancel Successfully.!'});
