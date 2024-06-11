@@ -1,6 +1,7 @@
 import {Component} from "react";
 import logo from "../../../image/logo.png";
 import axios from "axios";
+import {Navigate} from "react-router-dom";
 
 interface LoginProps {
     data: any;
@@ -8,6 +9,7 @@ interface LoginProps {
 
 interface LoginState {
     username: string;
+    redirect: boolean;
 }
 
 export class LoginPage extends Component<LoginProps,LoginState> {
@@ -18,12 +20,17 @@ export class LoginPage extends Component<LoginProps,LoginState> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            username: ''
+            username: '',
+            redirect: false
         }
         this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
     }
 
     render() {
+        if (this.state.redirect){
+            return <Navigate to="/home"/>;
+        }
+
         return (
             <div>
                 <div className="flex justify-center pt-10 pb-20">
@@ -90,7 +97,7 @@ export class LoginPage extends Component<LoginProps,LoginState> {
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     if (jsonData[0].username === this.state.username){
-                        window.location.href = '/allbooking';
+                        this.setState({redirect: true});
                     }else {
                         alert('Wrong Email or password.!');
                     }

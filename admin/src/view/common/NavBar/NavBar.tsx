@@ -1,5 +1,6 @@
 import {Component} from "react";
 import logo from "../../../image/logo.png";
+import {Link} from "react-router-dom";
 
 export class NavBar extends Component {
     render() {
@@ -12,6 +13,12 @@ export class NavBar extends Component {
                     <img className="h-12 ml-1" src={logo}
                          alt="This is logo."/>
                 </div>
+
+                <ul className="list-none flex mt-1">
+                    <li className="mr-5 text-[16px] text-[#e6f0e6] hover:text-secondary"><Link to="/home">DashBoard</Link></li>
+                    <li className="mr-5 text-[16px] text-[#e6f0e6] hover:text-secondary"><Link to="/allbooking">All Booking</Link></li>
+                </ul>
+
             </div>
         );
     }

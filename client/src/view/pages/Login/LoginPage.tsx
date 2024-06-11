@@ -1,6 +1,6 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import logo from "../../../image/logo.png";
-import {Link, Route} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,7 @@ interface LoginProps {
 }
 interface LoginState {
     email: string;
+    redirect: boolean
 }
 
 export class LoginPage extends Component<LoginProps,LoginState> {
@@ -20,12 +21,17 @@ export class LoginPage extends Component<LoginProps,LoginState> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            email: ''
+            email: '',
+            redirect: false
         }
         this.handleMessageInputOnChange = this.handleMessageInputOnChange.bind(this);
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Navigate to="/viewBooking" />;
+        }
+
         return (
             <div>
                 <div className="flex justify-center pt-20 pb-20">
@@ -100,6 +106,7 @@ export class LoginPage extends Component<LoginProps,LoginState> {
                     const jsonData = res.data;
                     if (jsonData[0].email === this.state.email){
                         notify();
+                        this.setState({ redirect: true });
                     }else {
                         alert('Wrong Email or password.!');
                     }
