@@ -57,6 +57,22 @@ const BookingController = {
         }catch (e) {
             console.error('Something Went Wrong.!',e);
         }
+    },
+    findPendingBooking: async function (req, res, next) {
+        try {
+            const booking = await Booking.find({status: "Pending"});
+            res.status(200).json(booking);
+        } catch (e) {
+            console.error('Something Went Wrong.!');
+        }
+    },
+    findAcceptedBooking: async function (req, res, next) {
+        try {
+            const booking = await Booking.find({status: "Accept"});
+            res.status(200).json(booking);
+        } catch (e) {
+            console.error('Something Went Wrong.!');
+        }
     }
 }
 
